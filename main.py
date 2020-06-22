@@ -17,9 +17,10 @@ HEADERS = {
 # }
 
 BASE_URL = 'https://webvpn.gdou.edu.cn'
-BASE_URL_JW = BASE_URL + '/http/77726476706e69737468656265737421a2a611d2746826012d5fc7f4cc/xtgl'
+BASE_URL_JW = BASE_URL + '/http/77726476706e69737468656265737421a2a611d2746826012d5fc7f4cc'
 
 SESSION = requests.session()
+
 
 def webvpn_login():
     webvpn_login_url = BASE_URL + "/do-login?local_login=true"
@@ -57,7 +58,7 @@ def jw_login():
     password = 'shiwenjie2019'
 
     # 获取密码加密公钥需要的参数
-    publickey_url = BASE_URL_JW + '/login_getPublicKey.html'
+    publickey_url = BASE_URL_JW + '/xtgl/login_getPublicKey.html'
     publickey = SESSION.get(publickey_url, headers=HEADERS).json()
     # 将base64解码转为bytes
     b_modulus = base64.b64decode(publickey['modulus'])
@@ -67,7 +68,7 @@ def jw_login():
     # 利用公钥加密,bytes转为base64编码
     encrypt_password = base64.b64encode(rsa.encrypt(password.encode(), rsa_key)).decode()
     print(encrypt_password)
-    jw_login_url = BASE_URL_JW + '/login_slogin.html'
+    jw_login_url = BASE_URL_JW + '/xtgl/login_slogin.html'
     response = SESSION.get(jw_login_url, headers=HEADERS)
     # 获取页面上的csrftoken参数
     soup = BeautifulSoup(response.text, "html.parser")
@@ -81,6 +82,34 @@ def jw_login():
     print(response.text)
 
 
+def do_evaluate():
+    evalution_url = BASE_URL_JW + '/xspjgl/xspj_cxXspjIndex.html?doType=details&gnmkdm=N401605&layout=default&su' \
+                                  '=201711621427'
+    save_evalution_url = BASE_URL_JW + '/xspjgl/xspj_bcXspj.html?gnmkdm=N401605&su=201711621427'
+
+
+    html = open('学生评价.html', 'r', encoding='utf-8')  # 以只读的方式打开本地html文件
+    htmlhandle = html.read()
+    soup = BeautifulSoup(htmlhandle, "html.parser")
+    # tds = soup.find(id='1').find_all('td')
+    pj_panel_body = soup.find(attrs={'class': 'panel-body xspj-body'})
+    sub_divs = pj_panel_body.find_all(attrs={'class': 'panel-body xspj-body'})
+    data = {
+        'gnmkdm': 'N401605',
+        'su': '201711621427',
+        'ztpjbl': pj_panel_body['data-ztpjbl'],
+        'jszdpjbl': pj_panel_body['data-jszdpjbl'],
+        'xykzpjbl': pj_panel_body['data-xykzpjbl'],
+        'jxb_id': pj_panel_body['data-jxb_id'],
+        'kch_id': pj_panel_body['data-kch_id'],
+        'jgh_id': pj_panel_body['data-jgh_id'],
+        'xsdm': pj_panel_body['data-xsdm'],
+        'modelList[0].pjmbmcb_id': sub_divs[0]['data-pjmbmcb_id'],
+        'modelList[0].pjdxdm': sub_divs[0]['data-pjdxdm'],
+    }
+
+
+
 def run():
     webvpn_login()
     jw_login()
@@ -89,4 +118,5 @@ def run():
 
 
 if __name__ == '__main__':
-    run()
+    # run()
+    do_evaluate()
