@@ -33,6 +33,7 @@ def webvpn_login():
     # 按照webvpn页面中js的逻辑，是通过判断js代码中logoutOtherToken这个变量是有值来判断是否已经登录过的
     # 然后决定是否踢掉其它客户端，这个值就是其它客户端登录的Cookie中的wengine_vpn_ticket的值
     # 但是js中这个变量怎么被赋上值的暂时未知，但是至少可以知道它的登录逻辑，方便我们模拟登录
+    # todo 需要解决当无其它客户端登录时上一步登录直接成功，正则匹配为None导致空指针的问题
     logout_other_token = re.search("logoutOtherToken = '(.*)'", response.text).group(1)
     if logout_other_token != '':
         # 不为空说明在其他客户端登录过，需要再发一次请求踢掉其它客户端
@@ -66,7 +67,7 @@ def jw_login():
     # 公钥生成,python3从bytes中获取int:int.from_bytes(bstring,'big')
     rsa_key = rsa.PublicKey(int.from_bytes(b_modulus, 'big'), int.from_bytes(b_exponent, 'big'))
     # 利用公钥加密,bytes转为base64编码
-    encrypt_password = base64.b64encode(rsa.encrypt(password, rsa_key)).decode()
+    encrypt_password = base64.b64encode(rsa.encrypt(password, rsa_key))
     print(encrypt_password)
     jw_login_url = BASE_URL_JW + '/login_slogin.html'
     response = SESSION.get(jw_login_url, headers=HEADERS)
@@ -76,18 +77,18 @@ def jw_login():
     data = {
         'csrftoken': csrftoken,
         'yhm': username,
-        'mm': encrypt_password
+        'mm': encrypt_password.decode(),
     }
     response = SESSION.post(jw_login_url, data=data, headers=HEADERS)
-    jw_index_url = BASE_URL_JW + '/index_initMenu.html'
-    response = SESSION.get(jw_index_url, headers=HEADERS)
-    print(response.text)
+    # jw_index_url = BASE_URL_JW + '/index_initMenu.html'
+    # response = SESSION.get(jw_index_url, headers=HEADERS)
+    # print(response.text)
 
 def run():
     webvpn_login()
     jw_login()
     # 操作完注销当前登录
-    # webvpn_logout()
+    webvpn_logout()
 
 
 if __name__ == '__main__':
