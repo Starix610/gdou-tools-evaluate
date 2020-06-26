@@ -292,7 +292,7 @@ class Evaluator:
         else:
             self.log('评价提交失败: %s' % response.text)
             send_email('646722505@qq.com', '评价提交失败', '[%s]评价提交失败，详情：%s' % (self.current_user, response.text))
-            raise CustomException(Result.failed(msg='评价提交失败！'))
+            raise CustomException(Result.failed(msg='评价提交失败，请稍后重试！'))
 
     def log(self, info):
         print('[%s] [%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), self.current_user, info))

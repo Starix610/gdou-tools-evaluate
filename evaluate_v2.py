@@ -1,7 +1,6 @@
 import base64
 from datetime import datetime
 import random
-from json import JSONDecodeError
 from urllib import parse
 from bs4 import BeautifulSoup
 import requests

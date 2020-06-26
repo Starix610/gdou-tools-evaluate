@@ -3,7 +3,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from result import Result, CustomException
 from fastapi.responses import JSONResponse
-from evaluate_v2 import Evaluator
+from evaluate import Evaluator
 
 app = FastAPI()
 
@@ -20,7 +20,9 @@ def hello_world(args: EvaluateRequest):
     validate(args)
     evaluator = Evaluator(args.username)
     evaluator.start(args.username, args.password, args.content, args.mode)
-    return Result.success(msg='评价已完成，请到官网查看！')
+    if args.mode == 1:
+        return Result.success(msg='评价已完成，请到官网查看！')
+    return Result.success(msg='所有评价已完成并保存，请到官网手动提交！')
 
 
 def validate(args):
