@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/gdou-new-jw-tools-test.iml" filepath="$PROJECT_DIR$/.idea/gdou-new-jw-tools-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gdou-new-jw-tools.iml" filepath="$PROJECT_DIR$/.idea/gdou-new-jw-tools.iml" />
     </modules>
   </component>
 </project>

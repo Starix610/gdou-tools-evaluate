@@ -1,14 +1,15 @@
-Request URL: https://webvpn.gdou.edu.cn/http/77726476706e69737468656265737421a2a611d2746826012d5fc7f4cc/xspjgl/xspj_bcXspj.html?vpn-12-o1-210.38.137.84&gnmkdm=N401605&su=201711621427
+Request URL: https://webvpn.gdou.edu.cn/http/77726476706e69737468656265737421a2a611d2746826012d5fc7f4cc/xspjgl/xspj_tjXspj.html?vpn-12-o1-210.38.137.84&gnmkdm=N401605&su=201711621427
 Request Method: POST
 Status Code: 200 OK
 Remote Address: 210.38.139.207:443
 Referrer Policy: no-referrer-when-downgrade
 Connection: keep-alive
+Content-Encoding: gzip
 Content-Language: zh-CN
-Content-Length: 23
 Content-Type: application/json;charset=UTF-8
-Date: Mon, 22 Jun 2020 05:32:45 GMT
+Date: Thu, 25 Jun 2020 09:57:05 GMT
 Server: none
+Transfer-Encoding: chunked
 X-Frame-Options: SAMEORIGIN
 X-Powered-By: Servlet/3.0 JSP/2.2 (ZFSOFT-SERVER Java/Oracle Corporation/1.8.0_201-b09)
 X-Ua-Compatible: IE=edge,chrome=1
@@ -16,9 +17,9 @@ Accept: application/json, text/javascript, */*; q=0.01
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh,en-US;q=0.9,en;q=0.8,zh-CN;q=0.7
 Connection: keep-alive
-Content-Length: 8579
+Content-Length: 9138
 Content-Type: application/x-www-form-urlencoded;charset=UTF-8
-Cookie: zg_did=%7B%22did%22%3A%20%22170b8c7f45b2a9-08cefae9b5c708-b383f66-144000-170b8c7f4614e%22%7D; zg_=%7B%22sid%22%3A%201583648076903%2C%22updated%22%3A%201583648076909%2C%22info%22%3A%201583648076907%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22ehall.gdou.edu.cn%22%2C%22cuid%22%3A%20%22201711621427%22%7D; wengine_vpn_ticket=f8a003cc1bf8716d; refresh=1
+Cookie: zg_did=%7B%22did%22%3A%20%22170b8c7f45b2a9-08cefae9b5c708-b383f66-144000-170b8c7f4614e%22%7D; zg_=%7B%22sid%22%3A%201583648076903%2C%22updated%22%3A%201583648076909%2C%22info%22%3A%201583648076907%2C%22superProperty%22%3A%20%22%7B%7D%22%2C%22platform%22%3A%20%22%7B%7D%22%2C%22utm%22%3A%20%22%7B%7D%22%2C%22referrerDomain%22%3A%20%22ehall.gdou.edu.cn%22%2C%22cuid%22%3A%20%22201711621427%22%7D; show_vpn=1; refresh=1; wengine_vpn_ticketwebvpn_gdou_edu_cn=dba68d2d4e80b327; remember_token=
 Host: webvpn.gdou.edu.cn
 Origin: https://webvpn.gdou.edu.cn
 Referer: https://webvpn.gdou.edu.cn/http/77726476706e69737468656265737421a2a611d2746826012d5fc7f4cc/xspjgl/xspj_cxXspjIndex.html?doType=details&gnmkdm=N401605&layout=default&su=201711621427
@@ -27,8 +28,6 @@ Sec-Fetch-Site: same-origin
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
 X-Requested-With: XMLHttpRequest
 vpn-12-o1-210.38.137.84:
-
-
 gnmkdm: N401605
 su: 201711621427
 ztpjbl: 100
@@ -36,12 +35,12 @@ jszdpjbl: 0
 xykzpjbl: 0
 jxb_id: 2019-2020-2)-11192002x0-111021-1
 kch_id: 11192002x0
-jgh_id: 5379611ef7ab7a038a15b0d66f4bf0effab4698a13a6cb05b1c12eaeb6248a53414c5cdb0209a7dfda15afb3f55304653ae80d62ed80fd2c10900cef41668424f5dcf5aa7608d0705ef3f2fcb97945ac0c09a85c3a468383d98188df872760ab3a659d7484f815a456362485d838cdd55f1129590ed9a6cd1c0efa6ff2afcf87
+jgh_id: 73b99a6b1bf2cd3f446635c50270005781c480904e5a75b1bdd9b083cdbbafd630733131b3db1d9064b1197f9540c9b50222a5f810f8d761e9bc682336ed26c0348728d9daf5f7ba48c098d01d80c75692e6097d28e71a74e8f55ad66bed863ac68d3e0571c109518f57dd69e478ba24589720ab2ced80abe1d83c66207d0c17
 xsdm: 01
 modelList[0].pjmbmcb_id: A7CB5925C3D6527FE053C7EBFF747BE5
 modelList[0].pjdxdm: 01
-modelList[0].py: %E8%80%81%E5%B8%88%E6%8E%88%E8%AF%BE%E9%A3%8E%E6%A0%BC%E5%BE%88%E5%A5%BD%EF%BC%8C%E8%AE%B2%E5%BE%97%E4%B8%8D%E9%94%99
-modelList[0].xspfb_id:
+modelList[0].py: %E8%80%81%E5%B8%88%E6%8E%88%E8%AF%BE%E9%A3%8E%E6%A0%BC%E5%BE%88%E5%A5%BD%EF%BC%8C%E8%AE%B2%E5%BE%97%E4%B8%8D%E9%94%99%EF%BC%8C%E4%B8%8A%E5%AE%8C%E8%BF%99%E9%97%A8%E8%AF%BE%E6%94%B6%E8%8E%B7%E5%BE%88%E5%A4%9A
+modelList[0].xspfb_id: A8A5E883172B59AEE053C7EBFF74956D
 modelList[0].xspjList[0].childXspjList[0].pfdjdmxmb_id: A44133C16D2333CAE053C7EBFF74E4B8
 modelList[0].xspjList[0].childXspjList[0].pjzbxm_id: A7CB5925C3D9527FE053C7EBFF747BE5
 modelList[0].xspjList[0].childXspjList[0].pfdjdmb_id: A44133C16D2133CAE053C7EBFF74E4B8
@@ -66,7 +65,7 @@ modelList[0].xspjList[0].childXspjList[5].pfdjdmxmb_id: A44133C16D2333CAE053C7EB
 modelList[0].xspjList[0].childXspjList[5].pjzbxm_id: A7CB5925C3DE527FE053C7EBFF747BE5
 modelList[0].xspjList[0].childXspjList[5].pfdjdmb_id: A44133C16D2133CAE053C7EBFF74E4B8
 modelList[0].xspjList[0].childXspjList[5].zsmbmcb_id: A7CB5925C3D6527FE053C7EBFF747BE5
-modelList[0].xspjList[0].childXspjList[6].pfdjdmxmb_id: A44133C16D2433CAE053C7EBFF74E4B8
+modelList[0].xspjList[0].childXspjList[6].pfdjdmxmb_id: A44133C16D2333CAE053C7EBFF74E4B8
 modelList[0].xspjList[0].childXspjList[6].pjzbxm_id: A7CB5925C3DF527FE053C7EBFF747BE5
 modelList[0].xspjList[0].childXspjList[6].pfdjdmb_id: A44133C16D2133CAE053C7EBFF74E4B8
 modelList[0].xspjList[0].childXspjList[6].zsmbmcb_id: A7CB5925C3D6527FE053C7EBFF747BE5
@@ -87,8 +86,8 @@ modelList[0].xspjList[1].pjzbxm_id: A7CB5925C3D8527FE053C7EBFF747BE5
 modelList[0].pjzt: 1
 modelList[1].pjmbmcb_id: A7EE842C750FB886E053C7EBFF74A0CF
 modelList[1].pjdxdm: 03
-modelList[1].py:
-modelList[1].xspfb_id:
+modelList[1].py: %E8%80%81%E5%B8%88%E6%8E%88%E8%AF%BE%E9%A3%8E%E6%A0%BC%E5%BE%88%E5%A5%BD%EF%BC%8C%E8%AE%B2%E5%BE%97%E4%B8%8D%E9%94%99%EF%BC%8C%E4%B8%8A%E5%AE%8C%E8%BF%99%E9%97%A8%E8%AF%BE%E6%94%B6%E8%8E%B7%E5%BE%88%E5%A4%9A
+modelList[1].xspfb_id: A8A5E883173659AEE053C7EBFF74956D
 modelList[1].xspjList[0].childXspjList[0].pfdjdmxmb_id: A44133C16D2333CAE053C7EBFF74E4B8
 modelList[1].xspjList[0].childXspjList[0].pjzbxm_id: A7EE842C7511B886E053C7EBFF74A0CF
 modelList[1].xspjList[0].childXspjList[0].pfdjdmb_id: A44133C16D2133CAE053C7EBFF74E4B8
@@ -127,4 +126,4 @@ modelList[1].xspjList[0].childXspjList[8].pfdjdmb_id: A44133C16D2133CAE053C7EBFF
 modelList[1].xspjList[0].childXspjList[8].zsmbmcb_id: A7EE842C750FB886E053C7EBFF74A0CF
 modelList[1].xspjList[0].pjzbxm_id: A7EE842C7510B886E053C7EBFF74A0CF
 modelList[1].pjzt: 1
-tjzt: 0
+tjzt: 1
