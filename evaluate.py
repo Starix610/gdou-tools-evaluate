@@ -289,13 +289,10 @@ class Evaluator:
         response = self.session.post(submit_evaluation_url, data=data, headers=self.headers)
         if '整体提交成功' in response.text:
             self.log('所有评价已提交成功！')
-        elif '存在未评价' in response.text:
-            self.log('评价提交失败: %s' % eval(response.text))
-            raise CustomException(Result.failed(msg='部分课程评价失败，请重试！'))
         else:
             self.log('评价提交失败: %s' % response.text)
             send_email('646722505@qq.com', '评价提交失败', '[%s]评价提交失败，详情：%s' % (self.current_user, response.text))
-            raise CustomException(Result.failed(msg='评价失败，请稍后重试！'))
+            raise CustomException(Result.failed(msg='评价提交失败，请稍后重试！'))
 
     def log(self, info):
         print('[%s] [%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), self.current_user, info))
