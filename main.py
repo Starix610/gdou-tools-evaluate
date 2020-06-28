@@ -42,9 +42,8 @@ def webvpn_login():
             'username': '201711621427',
             'logoutOtherToken': logout_other_token
         }
-        response = SESSION.post(webvpn_confirm_login_url, data=data, headers=HEADERS)
+        SESSION.post(webvpn_confirm_login_url, data=data, headers=HEADERS)
     print('WEBVPN登录成功: %s' % SESSION.cookies['wengine_vpn_ticket'])
-
 
 
 def webvpn_logout():
