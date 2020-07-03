@@ -2,10 +2,12 @@ import smtplib
 
 from email.mime.text import MIMEText
 
+# 发送邮件工具，这里主要用于线上发生未知异常时发送邮件通知，便于及时排查bug
+
 # 发送方邮箱
 msg_from = 'starix610@163.com'
 # 发送方邮箱授权码
-password = 'UANUUJIQLKXMOQWY'
+password = 'xxxx'
 
 
 def send_email(msg_to, subject, content):
@@ -34,4 +36,5 @@ def send_email(msg_to, subject, content):
 
 
 if __name__ == '__main__':
-    send_email('646722505@qq.com', '内置webvpn登录失败', '内置webvpn登录失败，请查看日志')
+    # send_email('646722505@qq.com', '内置webvpn登录失败', '内置webvpn登录失败，请查看日志')
+    pass
