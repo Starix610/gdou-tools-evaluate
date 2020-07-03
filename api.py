@@ -2,7 +2,6 @@ import uvicorn
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
-
 from result import Result, CustomException
 from fastapi.responses import JSONResponse
 from evaluate import Evaluator
@@ -51,7 +50,7 @@ def validate(args):
 @app.exception_handler(CustomException)
 async def unicorn_exception_handler(request: Request, e: CustomException):
     return JSONResponse(
-        status_code=200,
+        status_code=200,  # 抛出的自定义异常采用自己的状态码，但http状态码仍然使用200
         content=e.result.__dict__,
     )
 

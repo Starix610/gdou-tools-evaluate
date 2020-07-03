@@ -307,5 +307,5 @@ class Evaluator:
 
 if __name__ == '__main__':
     # evaluator = Evaluator()
-    # evaluator.start('1','2','3')
+    # evaluator.start('username', 'password', 1)
     pass
