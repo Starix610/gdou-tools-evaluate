@@ -28,9 +28,9 @@ class Evaluator:
         webvpn_login_url = self.base_url + "/do-login?local_login=true"
         data = {
             'auth_type': 'local',
-            'username': '201711621427',
+            'username': 'xxxxxxxxxxxx',
             'sms_code': '',
-            'password': 'Gdou*100412',
+            'password': 'xxxx',
             'needCaptcha': 'false',
         }
         response = self.session.post(url=webvpn_login_url, data=data, headers=self.headers)
@@ -270,18 +270,20 @@ class Evaluator:
                 data.update(textbook_data)
                 # 随机选取评价教材区域的一个评价项，评价为“较好”
                 random_index = random.randint(0, 8)
-                data['modelList[1].xspjList[0].childXspjList[%s].pfdjdmxmb_id' % random_index] = 'A44133C16D2433CAE053C7EBFF74E4B8'
+                data[
+                    'modelList[1].xspjList[0].childXspjList[%s].pfdjdmxmb_id' % random_index] = 'A44133C16D2433CAE053C7EBFF74E4B8'
             else:
                 # 如果当前课程无教材评价则随机选取评价教师区域的一个评价项，评价为“较好”
                 random_index = random.randint(0, 6)
-                data['modelList[0].xspjList[0].childXspjList[%s].pfdjdmxmb_id' % random_index] = 'A44133C16D2433CAE053C7EBFF74E4B8'
+                data[
+                    'modelList[0].xspjList[0].childXspjList[%s].pfdjdmxmb_id' % random_index] = 'A44133C16D2433CAE053C7EBFF74E4B8'
             response = self.session.post(save_evaluation_url, data=data, headers=self.headers)
             if '评价保存成功' in response.text:
                 self.log('评价保存成功')
             else:
                 self.log('评价保存失败: %s' % eval(response.text))
             # 提交所有评价
-            if i+1 == len(course_list) and mode == 1:
+            if i + 1 == len(course_list) and mode == 1:
                 self.submit_evaluation(data)
 
     def submit_evaluation(self, data):
@@ -306,6 +308,6 @@ class Evaluator:
 
 
 if __name__ == '__main__':
-    # evaluator = Evaluator()
-    # evaluator.start('username', 'password', 1)
+    evaluator = Evaluator()
+    evaluator.start('username', 'password', 'content', 1)
     pass
