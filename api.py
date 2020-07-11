@@ -26,7 +26,7 @@ class EvaluateRequest(BaseModel):
 
 
 @app.post('/autoEvaluate')
-def hello_world(args: EvaluateRequest):
+def evaluate(args: EvaluateRequest):
     validate(args)
     evaluator = Evaluator(args.username)
     evaluator.start(args.username, args.password, args.content, args.mode)
