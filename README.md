@@ -15,7 +15,7 @@ Python 3.6.5及以上
 + fastapi
 + uvicorn
 #### 3. 修改代码配置
-第一步：修改evaluate.py文件中的开头内容：
+**第一步：修改evaluate.py文件中的开头内容：**
 ```python
 webvpn_username = 'xxxxxxxxxxxx'
 webvpn_password = 'xxxx'
@@ -23,7 +23,7 @@ webvpn_password = 'xxxx'
 修改此处webvpn登录的账号密码（网上办事大厅的账号密码）为你自己的，目前登录教务系统需要先经过webvpn，所以这个必填。经测试发现：一个webvpn账号登录后可以给不同的教务系统账号进行登录，因此这个只需填写一个账号就好，即使登录其它的教务系统账号也无需更改。
 
 第二步：
-修改evaluate.py文件main函数入口处调用的参数：
+**修改evaluate.py文件main函数入口处调用的参数：**
 ```python
 if __name__ == '__main__':
     evaluator = Evaluator()
