@@ -9,6 +9,9 @@ from email_util import send_email
 from result import CustomException
 from result import Result
 
+webvpn_username = 'xxxxxxxxxxxx'
+webvpn_password = 'xxxx'
+
 
 class Evaluator:
     headers = {
@@ -28,9 +31,9 @@ class Evaluator:
         webvpn_login_url = self.base_url + "/do-login?local_login=true"
         data = {
             'auth_type': 'local',
-            'username': 'xxxxxxxxxxxx',
+            'username': webvpn_username,
             'sms_code': '',
-            'password': 'xxxx',
+            'password': webvpn_password,
             'needCaptcha': 'false',
         }
         response = self.session.post(url=webvpn_login_url, data=data, headers=self.headers)
@@ -310,4 +313,3 @@ class Evaluator:
 if __name__ == '__main__':
     evaluator = Evaluator()
     evaluator.start('username', 'password', 'content', 1)
-    pass
