@@ -31,3 +31,19 @@ if __name__ == '__main__':
     evaluator.start('username', 'password', 'content', 1)
 ```
 修改此处调用start方法传递的四个参数，username和passowrd是教务系统的账号和密码，content是评价的内容，最后一个参数是评价的提交模式：0代表手动提交，1代表自动提交，两个模式的含义可以看公众号推文中的具体解释。
+
+#### 4.运行
+单独本地执行的时候暂时不涉及其它的代码，只需关注evaluate.py这个文件，在IDE或者命令行下运行evaluate.py即可，运行后就可以实现给指定的账号进行自动评价。
+
+### 后端接口部署使用
+该脚本目前也使用fastapi框架开发了一个简单的python后台服务，提供后端接口来供外部客户端应用来调用自动评价服务。
+
+有两种方式启动后端服务：
+方式一：直接运行api.py文件：
+```shell
+python api.py
+```
+方式二：执行这条命令：
+```shell
+uvicorn api:app --reload
+```
