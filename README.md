@@ -4,6 +4,9 @@
 
 ### 部署使用
 
+#### 环境版本
+Python 3.6.5及以上
+
 #### 安装依赖库
 + requests
 + BeautifulSoup4
