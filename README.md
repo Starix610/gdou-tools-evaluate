@@ -49,4 +49,4 @@ uvicorn api:app --reload
 ```shell
 Uvicorn running on http://127.0.0.1:8000
 ```
-然后就可以调用HTTP接口来进行自动评价了，也可以部署到你自己的服务器上并集成到你的应用中。具体接口说明请看：[自动评价接口说明](http://www.starix.top/temp/file/evaluate.pdf "自动评价接口说明")
+然后就可以调用HTTP接口来进行自动评价了，也可以部署到你自己的服务器上并集成到你的应用中。具体接口说明请看：<a href="http://www.starix.top/temp/file/evaluate.pdf" target="_blank">自动评价接口说明</a>
