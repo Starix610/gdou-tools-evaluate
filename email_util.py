@@ -36,5 +36,5 @@ def send_email(msg_to, subject, content):
 
 
 if __name__ == '__main__':
-    # send_email('646722505@qq.com', '内置webvpn登录失败', '内置webvpn登录失败，请查看日志')
+    # send_email('xxxx@qq.com', '内置webvpn登录失败', '内置webvpn登录失败，请查看日志')
     pass
