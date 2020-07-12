@@ -16,26 +16,28 @@ Python 3.6.5及以上
 + uvicorn
 #### 3. 修改代码配置
 第一步：修改evaluate.py文件中开头处的内容
+
+修改此处webvpn登录的账号密码（网上办事大厅的账号密码）为你自己的，目前登录教务系统需要先经过webvpn，所以这个必填。经测试发现：一个webvpn账号登录后可以给不同的教务系统账号进行登录，因此这个只需填写一个账号就好，即使登录其它的教务系统账号也无需更改。
 ```python
 webvpn_username = 'xxxxxxxxxxxx'
 webvpn_password = 'xxxxxxxxxxxx'
 
 ```
-修改此处webvpn登录的账号密码（网上办事大厅的账号密码）为你自己的，目前登录教务系统需要先经过webvpn，所以这个必填。经测试发现：一个webvpn账号登录后可以给不同的教务系统账号进行登录，因此这个只需填写一个账号就好，即使登录其它的教务系统账号也无需更改。
 
 第二步：修改evaluate.py文件main函数入口处调用的参数
+
+修改此处调用start方法传递的四个参数，username和passowrd是教务系统的账号和密码，content是评价的内容，最后一个参数是评价的提交模式：0代表手动提交，1代表自动提交，两个模式的含义可以看公众号推文中的具体解释。初始化Evaluator('username')时传递的username参数也需要修改为你的学号。
 ```python
 if __name__ == '__main__':
     evaluator = Evaluator('username')
     evaluator.start('username', 'password', 'content', 1)
 ```
-修改此处调用start方法传递的四个参数，username和passowrd是教务系统的账号和密码，content是评价的内容，最后一个参数是评价的提交模式：0代表手动提交，1代表自动提交，两个模式的含义可以看公众号推文中的具体解释。初始化Evaluator('username')时传递的username参数也需要修改为你的学号
 
 #### 4. 运行
 在IDE或者命令行下运行evaluate.py，运行后就可以实现给指定的账号进行自动评价。
 
 ### 后端接口的部署使用
-该脚本目前也使用fastapi框架开发了一个简单的python后台服务，提供后端接口来供外部客户端应用来调用自动评价服务。如果你有需要的话可以部署后端接口来使用。
+该脚本目前也使用fastapi框架开发了一个简单的python后台服务，提供后端接口来供外部客户端应用来调用自动评价。如果你有需要的话可以部署后端接口来使用。
 有两种方式启动后端服务：
 
 方式一：直接运行api.py文件
