@@ -10,7 +10,7 @@ from result import CustomException
 from result import Result
 
 webvpn_username = 'xxxxxxxxxxxx'
-webvpn_password = 'xxxx'
+webvpn_password = 'xxxxxxxxxxxx'
 
 
 class Evaluator:
@@ -311,5 +311,5 @@ class Evaluator:
 
 
 if __name__ == '__main__':
-    evaluator = Evaluator()
+    evaluator = Evaluator('username')
     evaluator.start('username', 'password', 'content', 1)
