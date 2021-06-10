@@ -1,0 +1,141 @@
+.zfdun_container{
+	margin: 0 auto;
+}
+.zfdun .zfdun_captcha_panel{
+	display:none;
+    top: 58px;
+    height: 220px;
+    z-index: 9;
+}
+
+.zfdun .zfdun_captcha{
+    overflow: hidden;
+    width: 338px;
+}
+
+.zfdun .zfdun_captcha_bgimg{
+	pointer-events: auto;
+    position: absolute;
+    width: 338px;
+    height: 200px;
+}
+
+.zfdun .zfdun_captcha_bgimg .zfdun_bgimg_img{
+	position: absolute;
+    width: auto;
+    height: 100%;
+}
+
+.zfdun .zfdun_captcha_bgimg .zfdun_bgimg_jigsaw{
+	position: absolute;
+    height: 100%;
+    left: 0px;
+}
+
+.zfdun .zfdun_slide_bar{
+	position: relative;
+    width: 100%;
+    margin: auto;
+}
+
+.zfdun .zfdun_verify_tips_fail span{
+	
+}
+
+.zfdun .zfdun_verify_tips_succsss span{
+	color:#42ca6b;
+}
+
+.zfdun .zfdun_refresh_btn{
+	position: relative;
+    top: 0px;
+    right: 5px;
+    z-index: 99;
+}
+
+.zfdun .zfdun_refresh_btn a{
+	display: inline-block;
+    background-position: 0 -299px;
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+}
+
+.zfdun .zfdun_refresh_btn a:hover{
+	cursor: pointer;
+}
+
+.zfdun .zfdun_captcha_control{
+	height: 40px;
+	position: relative;
+    border: 1px solid #e4e7eb;
+}
+
+.zfdun .zfdun_slider_bar{
+	border-radius: 2px;
+    height: 38px;
+    border: 1px solid #e4e7eb;
+    background-color: #f7f9fa;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    transition: background .2s linear;
+}
+
+.zfdun .zfdun_slider_bar p{
+	font-size: 14px;
+    line-height: 38px;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.zfdun .zfdun_slider_bar_btn{
+	border-radius: 2px;
+    cursor: pointer;
+    background-color: #fff;
+    position: relative;
+    top: -38px;
+    height: 38px;
+    width: 48px;
+    border-style: groove;
+    border-width: 1px;
+    transition: background .2s linear;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+.zfdun .zfdun_slider_bar_btn:hover{
+	background-color: #1991fa;
+	cursor: pointer;
+}
+
+.zfdun .zfdun_slider_bar_btn_fail{
+	background-color: #f57a7a;;
+	cursor: pointer;
+}
+
+.zfdun .zfdun_slider_icon{
+	position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: 50%;
+    margin-left: -6px;
+    width: 14px;
+    height: 10px;
+}
+
+.zfdun .zfdun_slider_icon_normal{
+    background-position: 0 -26px;
+}
+
+.zfdun .zfdun_slider_icon_moving{
+    background-position: 0 0px;
+}
+
+.zfdun .zfdun_slider_icon_success{
+    background-position: 0 -13px;
+    pointer-events: none;
+}
+
+.zfdun .zfdun_slider_icon_fail{
+    background-position: 0 -68px;
+}

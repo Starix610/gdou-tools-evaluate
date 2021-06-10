@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 from result import Result, CustomException
 from fastapi.responses import JSONResponse
-from evaluate import Evaluator
+from evaluate_old import Evaluator
 
 app = FastAPI()
 
