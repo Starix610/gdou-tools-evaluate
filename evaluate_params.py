@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 
+
 # 理论课参数
 def get_params(html, course, content):
     soup = BeautifulSoup(html, "html.parser")

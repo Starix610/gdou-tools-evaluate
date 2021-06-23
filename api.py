@@ -1,10 +1,12 @@
+import traceback
 import uvicorn
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 from result import Result, CustomException
 from fastapi.responses import JSONResponse
-from evaluate_old import Evaluator
+from evaluate import Evaluator
+from slide_captcha_pass import CaptchaProcessor
 
 app = FastAPI()
 
@@ -28,12 +30,32 @@ class EvaluateRequest(BaseModel):
 @app.post('/autoEvaluate')
 def evaluate(args: EvaluateRequest):
     validate(args)
+    # 滑动验证码处理，获取验证后cookie
+    cookies = captcha_process()
     evaluator = Evaluator(args.username)
-    evaluator.start(args.username, args.password, args.content, args.mode)
+    evaluator.start(args.username, args.password, args.content, args.mode, cookies)
     if args.mode == 1:
         return Result.success(msg='评价已完成，请到官网查看！')
     return Result.success(msg='所有评价已完成并保存，请到官网手动提交！')
 
+
+def captcha_process():
+    p = CaptchaProcessor()
+    # 识别失败最大重试次数
+    retry = 5
+    while True:
+        if retry <= 0:
+            raise CustomException(Result.validate_failed(msg='处理失败，请稍后重试'))
+        try:
+            dis = p.detect_distance()
+            track = p.movement_track_generate(dis)
+            status = p.submit(track)
+            if status == 'success':
+                # 返回cookie
+                return p.session.cookies
+        except Exception as e:
+            traceback.print_exc()
+        retry -= 1
 
 def validate(args):
     if not args.username or not args.password or not args.content:

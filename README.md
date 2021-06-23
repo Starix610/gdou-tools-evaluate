@@ -3,10 +3,12 @@
 一个Python实现的gdou教务系统教学自动评价脚本，除了能在本地直接运行使用外，也包含一个简单的后端服务，提供HTTP接口能力。
 ### 目录说明
 + **evaluate.py - 自动评价主要代码**，如果只需要在本地使用，则只需关注这个代码文件
++ evaluate_params.py - 评价参数处理
++ slide_captcha_pass.py - 滑动验证码处理
 + api.py - 提供自动评价HTTP接口
 + result.py - 接口调用统一格式返回结果封装
 + result_status_em.py - 接口调用返回状态码枚举定义
-+ email_util.py - 发送邮件工具，这里主要用于线上发生未知异常时发送邮件通知，便于及时排查bug
++ wxpush.py - 微信推送工具，这里主要用于线上发生未知异常时推送错误日志，便于及时排查bug
 
 
 ### 本地部署使用
@@ -17,26 +19,34 @@ Python 3.6.5及以上
 + requests
 + BeautifulSoup4
 + base64
++ opencv-python
++ numpy
++ PyExecJS
 + rsa
 + fastapi
 + uvicorn
++ wxpusher
+
 #### 3. 修改代码配置
-+ 第一步：修改evaluate.py文件中开头处的内容
-    
-    修改此处webvpn登录的账号密码（网上办事大厅的账号密码）为你自己的，目前登录教务系统需要先经过webvpn，所以这个必填。经测试发现：一个webvpn账号登录后可以给不同的教务系统账号进行登录，因此这个只需填写一个账号就好，即使登录其它的教务系统账号也无需更改。
-    ```python
-    webvpn_username = 'xxxxxxxxxxxx'
-    webvpn_password = 'xxxxxxxxxxxx'
-    
-    ```
 
-+ 第二步：修改evaluate.py文件main函数入口处调用的参数
+修改evaluate.py文件main入口函数中调用**start**函数的参数，主要修改前四个参数，参数说明：
 
-    修改此处调用start方法传递的四个参数，username和passowrd是教务系统的账号和密码，content是评价的内容，最后一个参数是评价的提交模式：0代表手动提交，1代表自动提交，两个模式的含义可以看公众号推文中的具体解释。初始化Evaluator('username')时传递的username参数也需要修改为你的学号。
+username：教务系统账号，password：密码，content：评价内容，mode：评价提交模式（1代表自动提交，2代表手动提交），cookies：验证码认证成功后的cookies（自动获取，无需更改）
+
     ```python
     if __name__ == '__main__':
-        evaluator = Evaluator('username')
-        evaluator.start('username', 'password', 'content', 1)
+        # 处理滑动验证码
+        p = CaptchaProcessor()
+        dis = p.detect_distance()
+        track = p.movement_track_generate(dis)
+        status = p.submit(track)
+        if status == 'success':
+            # 获取验证成功后的cookies，供后续登录使用
+            cookies = p.session.cookies
+    
+        # 执行登录和自动评价
+        evaluator = Evaluator('学号')
+        evaluator.start('学号', '密码', '评价内容', 2, cookies)
     ```
 
 #### 4. 运行
