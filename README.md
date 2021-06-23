@@ -33,19 +33,19 @@ Python 3.6.5及以上
 
 username：教务系统账号，password：密码，content：评价内容，mode：评价提交模式（1代表自动提交，2代表手动提交），cookies：验证码认证成功后的cookies（自动获取，无需更改）
 ```python
-    if __name__ == '__main__':
-        # 处理滑动验证码
-        p = CaptchaProcessor()
-        dis = p.detect_distance()
-        track = p.movement_track_generate(dis)
-        status = p.submit(track)
-        if status == 'success':
-            # 获取验证成功后的cookies，供后续登录使用
-            cookies = p.session.cookies
-    
-        # 执行登录和自动评价
-        evaluator = Evaluator('学号')
-        evaluator.start('学号', '密码', '评价内容', 2, cookies)
+if __name__ == '__main__':
+    # 处理滑动验证码
+    p = CaptchaProcessor()
+    dis = p.detect_distance()
+    track = p.movement_track_generate(dis)
+    status = p.submit(track)
+    if status == 'success':
+        # 获取验证成功后的cookies，供后续登录使用
+        cookies = p.session.cookies
+
+    # 执行登录和自动评价
+    evaluator = Evaluator('学号')
+    evaluator.start('学号', '密码', '评价内容', 2, cookies)
 ```
 
 #### 4. 运行
