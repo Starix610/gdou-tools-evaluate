@@ -32,8 +32,7 @@ Python 3.6.5及以上
 修改evaluate.py文件main入口函数中调用**start**函数的参数，主要修改前四个参数，参数说明：
 
 username：教务系统账号，password：密码，content：评价内容，mode：评价提交模式（1代表自动提交，2代表手动提交），cookies：验证码认证成功后的cookies（自动获取，无需更改）
-
-    ```python
+```python
     if __name__ == '__main__':
         # 处理滑动验证码
         p = CaptchaProcessor()
@@ -47,7 +46,7 @@ username：教务系统账号，password：密码，content：评价内容，mod
         # 执行登录和自动评价
         evaluator = Evaluator('学号')
         evaluator.start('学号', '密码', '评价内容', 2, cookies)
-    ```
+```
 
 #### 4. 运行
 在IDE或者命令行下运行evaluate.py，运行后就可以实现给指定的账号进行自动评价。
